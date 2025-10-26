@@ -26,10 +26,10 @@ The project consists of:
 
 2. Install dependencies: `npm install`
 
-3. Run `npm run dev`. The backend server will start on: http://localhost:3000
+3. Run `npm run dev`. The frontend server will start on: http://localhost:3000
 
 
-## 🔄 How it Works
+## How it Works
 
 * The frontend allows users to select neurodiverse types and input study text.
 

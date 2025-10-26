@@ -1,26 +1,36 @@
-import AdaptionForm from "@/src/components/AdaptionForm";
 import Image from 'next/image';
+import Button from "@/components/basic/Button";
+import PageWrapper from "@/components/basic/PageWrapper";
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-10">
-      <div className="w-full lg:w-2/4 max-w-lg flex flex-col justify-center space-y-4">
-        <div>
-          <h1 className="text-5xl md:text-6xl font-semibold mb-6">
-            Learning made <br/> easier for all
-          </h1>
-          <p>Submit your study text and choose how you learn best. We’ll help shape the material to support your neurodiverse needs — whether you have ADHD, dyslexia, autism, or another learning style.</p>
+    <PageWrapper>
+      {/* Left: Text & CTA */}
+      <div className="lg:w-1/2 flex flex-col justify-center space-y-6">
+        <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+          Learning made <br /> easier for all
+        </h1>
+        <p className="text-lg text-gray-700">
+          Submit your study text and choose how you learn best. We’ll help shape the material to support your neurodiverse needs — whether you have ADHD, dyslexia, autism, or another learning style.
+        </p>
+        <Button 
+          href="/adapt" 
+          text="Get Started →"
+        /> 
+      </div>
+
+      {/* Right: Image */}
+      <div className="lg:w-1/2 flex justify-center items-center gradient rounded-3xl">
+        <div className="h-full w-full max-w-md flex items-center justify-center">
+          <Image
+            src="/images/computer.png"
+            width={600}
+            height={400}
+            alt="Illustration of a student with a computer"
+            className="object-cover h-auto w-full"
+          />
         </div>
-        <Image
-          src="/images/computer.png"
-          width={600}
-          height={300}
-          alt="Illustration of an student with a computer"
-        />
       </div>
-      <div className="w-full lg:w-2/4 flex justify-center">
-        <AdaptionForm/>
-      </div>
-    </div>
+    </PageWrapper>
   );
 }

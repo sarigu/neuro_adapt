@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
-import { Button } from "@/src/components/basic/Button";
+import Button from "@/components/basic/Button";
 
 const neuroTypes = [
   "ADHD",
@@ -97,7 +97,7 @@ export default function AdaptionForm() {
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
           <fieldset>
-            <legend className="text-gray-700 font-semibold mb-2">
+            <legend className="font-semibold mb-2">
               Select your neurodiverse types
             </legend>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -123,22 +123,19 @@ export default function AdaptionForm() {
           </fieldset>
 
           <div>
-            <label className="text-gray-700 font-semibold mb-1">
-              Paste your learning material
+            <label className="font-semibold mb-2">
+              Add your learning material
             </label>
-            <p className="text-sm text-gray-500 mb-2">
-              Paste a paragraph you’re working with — like a passage from a paper.
-            </p>
             <textarea
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-highlight resize-y min-h-[150px]"
               value={studyText}
               onChange={(e) => setStudyText(e.target.value)}
-              placeholder="e.g. The mitochondria is the powerhouse of the cell..."
+              placeholder="Paste a paragraph you’re working with — like a passage from a paper."
               required
             />
           </div>
           <Button
-            text="Start adaptation"
+            text="Start adaptation →"
             variant="primary"
             type="submit"
           />

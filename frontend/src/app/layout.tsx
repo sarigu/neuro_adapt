@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
+import Header from "@/src/components/basic/Header";
 import "@/resources/globals.css";
 import "@/resources/fonts.css";
-import Header from "@/src/components/basic/Header";
-import Footer from "@/src/components/basic/Footer";
 
 export const metadata: Metadata = {
   title: "Neuodiverse Support",
@@ -16,12 +15,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="gradient font-primary">
+      <body className="bg-grey-50 font-primary lg:min-h-screen w-full flex flex-col items-center justify-center p-6 lg:p-10">
         <Header/>
-        <main className="p-5 md:p-10">
+        <main>
           {children}
         </main>
-        <Footer/>
       </body>
     </html>
   );

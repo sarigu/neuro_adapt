@@ -39,8 +39,6 @@ router.post("/", async (req, res) => {
     Please return only the adapted text.
   `;
 
-  //console.log("Prompt:\n", prompt);
-
   try {
     const completion = await openai.chat.completions.create({
       model: "gpt-4",
@@ -60,7 +58,6 @@ router.post("/", async (req, res) => {
     const adaptedText = completion.choices[0].message.content;
     res.status(200).json({ adaptedText });
   } catch (error) {
-    //console.error("Error:", error.message);
     res.status(500).json({ error: "Something went wrong with content adaptation." });
   }
 });
