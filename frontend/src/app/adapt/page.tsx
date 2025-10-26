@@ -9,9 +9,14 @@ export default function Adapt() {
         <h1 className="text-4xl md:text-6xl font-bold leading-tight">
           Adapt your text
         </h1>
-        <p className="text-lg text-gray-700">
-          Submit your study text and choose how you learn best. We’ll help shape the material to support your neurodiverse needs — whether you have ADHD, dyslexia, autism, or another learning style.
-        </p>
+        <p>Start adapting your material now and take the stress out of studying!</p>
+        <p><strong>How it works:</strong></p>
+        <ol>
+          <li>1. Select your neurodiversity type – so we know the learning strategies that fit you best.</li>
+          <li>2. Paste your learning material – it could be text or notes</li>
+          <li>3. Get your adapted version – simplified, reorganized, or visually enhanced to make studying easier and more effective.</li>
+        </ol>
+        <p>No matter the material, we’ll help you focus on what matters and make learning feel less overwhelming.</p>
       </div>
 
       {/* Right: Adaption Form */}

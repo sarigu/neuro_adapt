@@ -11,7 +11,7 @@ export default function Home() {
           Learning made <br /> easier for all
         </h1>
         <p className="text-lg text-gray-700">
-          Submit your study text and choose how you learn best. We’ll help shape the material to support your neurodiverse needs — whether you have ADHD, dyslexia, autism, or another learning style.
+          Whether you have ADHD, Autism, Dyslexia, Dyspraxia, or Dyscalculia, everyone learns differently—and that’s okay. Here, you can transform your notes, articles, or lecture slides into a format that works best for your brain.
         </p>
         <Button 
           href="/adapt" 

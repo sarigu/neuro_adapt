@@ -123,14 +123,14 @@ export default function AdaptionForm() {
           </fieldset>
 
           <div>
-            <label className="font-semibold mb-2">
+            <label className="font-semibold">
               Add your learning material
             </label>
             <textarea
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-highlight resize-y min-h-[150px]"
+              className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-highlight resize-y min-h-[160px]"
               value={studyText}
               onChange={(e) => setStudyText(e.target.value)}
-              placeholder="Paste a paragraph you’re working with — like a passage from a paper."
+              placeholder="Paste a text or notes you’re working with"
               required
             />
           </div>
