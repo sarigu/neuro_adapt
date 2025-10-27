@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import ReactMarkdown from "react-markdown";
 import Button from "@/components/basic/Button";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const neuroTypes = [
   "ADHD",
@@ -14,10 +15,10 @@ const neuroTypes = [
 
 export default function AdaptionForm() {
   const [selectedNeuroTypes, setSelectedNeuroTypes] = useState<string[]>([]);
-  const [studyText, setStudyText] = useState("");
+  const [learningMaterial, setLearningMaterial] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [adaptedText, setAdaptedText] = useState<string | null>(null);
+  const [adaptedLearningMaterial, setAdaptedLearningMaterial] = useState<string | null>(null);
 
   const toggleType = (type: string) => {
     setSelectedNeuroTypes((prev) =>
@@ -28,13 +29,13 @@ export default function AdaptionForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    setIsLoading(true);
     setError(null);
-    setAdaptedText(null);
+    setAdaptedLearningMaterial(null);
+    setIsLoading(true);
 
     try {
-      if (selectedNeuroTypes.length === 0 || !studyText) {
-        setError("Please select a neurotype and enter your study text.");
+      if (selectedNeuroTypes.length === 0 || !learningMaterial) {
+        setError("Please select a neurotype and paste your learning material here.");
         return;
       }
 
@@ -43,13 +44,13 @@ export default function AdaptionForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ selectedNeuroTypes, studyText }),
+        body: JSON.stringify({ selectedNeuroTypes, learningMaterial }),
       });
 
       if (!response.ok) throw new Error("Something went wrong. Please try again.");
 
       const data = await response.json();
-      setAdaptedText(data.adaptedText || "No adapted content returned.");
+      setAdaptedLearningMaterial(data.adaptedLearningMaterial || "No adapted content returned.");
     } catch (err: any) {
       setError(err.message || "Unexpected error occurred.");
     } finally {
@@ -59,17 +60,17 @@ export default function AdaptionForm() {
 
   const reset = () => {
     setSelectedNeuroTypes([]);
-    setStudyText("");
-    setAdaptedText(null);
+    setLearningMaterial("");
+    setAdaptedLearningMaterial(null);
     setError(null);
   };
 
   return (
-    <div className="bg-white shadow-xl rounded-xl p-8 w-full max-w-lg min-h-[400px] flex flex-col justify-center">
+    <div className="bg-white shadow-xl rounded-xl p-8 w-full max-w-lg flex flex-col justify-start">
       {isLoading ? (
         <div>
           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-black mx-auto mb-4"></div>
-          <p className="text-center text-gray-700">One moment. We are adapting your content…</p>
+          <p className="text-center">One moment. We are adapting your content…</p>
         </div>
       ) : error ? (
         <div className="text-center space-y-4 text-red-600">
@@ -80,20 +81,21 @@ export default function AdaptionForm() {
             onClick={reset}
           />
         </div>
-      ) : adaptedText ? (
+      ) : adaptedLearningMaterial ? (
         <div className="space-y-4">
-          <h2 className="text-xl font-bold text-gray-800">Your adapted text</h2>
-          <div className="bg-gray-100 p-4 rounded-lg whitespace-pre-wrap text-gray-800">
-            <ReactMarkdown>
-              {adaptedText}
-            </ReactMarkdown>
-          </div>
-          <Button
-            text="Try another"
-            variant="secondary"
-            onClick={reset}
-          />
-        </div>
+  <h2 className="text-xl font-bold">Your adapted text</h2>
+  <div className="bg-gray-100 p-4 rounded-lg max-h-[400px] overflow-auto prose prose-sm">
+     <ReactMarkdown remarkPlugins={[remarkGfm]}>
+    {adaptedLearningMaterial}
+  </ReactMarkdown>
+  </div>
+  <Button
+    text="Try another"
+    variant="secondary"
+    onClick={reset}
+  />
+</div>
+
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
           <fieldset>
@@ -128,8 +130,8 @@ export default function AdaptionForm() {
             </label>
             <textarea
               className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-highlight resize-y min-h-[160px]"
-              value={studyText}
-              onChange={(e) => setStudyText(e.target.value)}
+              value={learningMaterial}
+              onChange={(e) => setLearningMaterial(e.target.value)}
               placeholder="Paste a text or notes you’re working with"
               required
             />
