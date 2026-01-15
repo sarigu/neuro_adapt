@@ -5,7 +5,7 @@ export default function About() {
   return (
     <PageWrapper>
       {/* Left: Text */}
-      <div className="lg:w-1/2 flex flex-col justify-center space-y-6">
+      <div className="lg:w-1/2 flex flex-col justify-center space-y-6 max-w-lg">
         <h1 className="text-4xl md:text-6xl font-bold leading-tight">
           Helping every <br/> brain thrive
         </h1>

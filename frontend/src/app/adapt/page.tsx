@@ -5,9 +5,9 @@ export default function Adapt() {
   return (
     <PageWrapper>
       {/* Left: Text*/}
-      <div className="lg:w-1/2 flex flex-col justify-center space-y-6">
+      <div className="lg:w-1/2 flex flex-col justify-center space-y-6 max-w-lg">
         <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-          Adapt your text
+          Adapt your material
         </h1>
         <p>Start adapting your material now and take the stress out of studying!</p>
         <p><strong>How it works:</strong></p>

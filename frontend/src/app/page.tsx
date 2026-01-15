@@ -6,11 +6,11 @@ export default function Home() {
   return (
     <PageWrapper>
       {/* Left: Text & CTA */}
-      <div className="lg:w-1/2 flex flex-col justify-center space-y-6">
+      <div className="lg:w-1/2 flex flex-col justify-center items-start space-y-6  max-w-lg">
         <h1 className="text-4xl md:text-6xl font-bold leading-tight">
           Learning made <br /> easier for all
         </h1>
-        <p className="text-lg text-gray-700">
+        <p>
           Whether you have ADHD, Autism, Dyslexia, Dyspraxia, or Dyscalculia, everyone learns differently—and that’s okay. Here, you can transform your notes, articles, or lecture slides into a format that works best for your brain.
         </p>
         <Button 

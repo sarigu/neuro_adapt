@@ -83,24 +83,23 @@ export default function AdaptionForm() {
         </div>
       ) : adaptedLearningMaterial ? (
         <div className="space-y-4">
-  <h2 className="text-xl font-bold">Your adapted text</h2>
-  <div className="bg-gray-100 p-4 rounded-lg max-h-[400px] overflow-auto prose prose-sm">
-     <ReactMarkdown remarkPlugins={[remarkGfm]}>
-    {adaptedLearningMaterial}
-  </ReactMarkdown>
-  </div>
-  <Button
-    text="Try another"
-    variant="secondary"
-    onClick={reset}
-  />
-</div>
-
+          <h2 className="text-xl font-bold">Your adapted text</h2>
+          <div className="bg-gray-100 p-4 rounded-lg max-h-[400px] overflow-auto prose prose-sm">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {adaptedLearningMaterial}
+          </ReactMarkdown>
+          </div>
+          <Button
+            text="Try another"
+            variant="secondary"
+            onClick={reset}
+          />
+        </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
           <fieldset>
             <legend className="font-semibold mb-2">
-              Select your neurodiverse types
+              Select your neurodiversity types
             </legend>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {neuroTypes.map((type) => (
@@ -137,7 +136,7 @@ export default function AdaptionForm() {
             />
           </div>
           <Button
-            text="Start adaptation →"
+            text="Start Adaptation →"
             variant="primary"
             type="submit"
           />

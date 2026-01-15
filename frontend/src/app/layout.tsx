@@ -15,9 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-grey-50 font-primary lg:min-h-screen w-full flex flex-col items-center justify-center p-6 lg:p-10">
+      <body className="bg-grey-50 font-primary w-full flex flex-col items-center justify-center max-w-7xl mx-auto px-6 lg:px-10">
         <Header/>
-        <main>
+        <main className="w-full flex-1 flex flex-col items-center justify-center max-w-7xl mx-auto">
           {children}
         </main>
       </body>

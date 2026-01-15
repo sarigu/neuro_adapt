@@ -16,7 +16,7 @@ export default function Button({
   type = "button",
 }: ButtonProps) {
   const baseStyles =
-    "py-3 px-6 rounded-full font-medium text-center w-fit cursor-pointer border-2 transition-all duration-300 ease-in-out";
+    "py-2 px-6 rounded-full font-medium text-center w-fit cursor-pointer border-2 transition-all duration-300 ease-in-out";
 
   const variants = {
     primary:
